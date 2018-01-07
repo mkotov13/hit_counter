@@ -4,9 +4,9 @@ MAINTAINER Max Kotov <maxkotovfromrussia@gmail.com>
 
 EXPOSE 5000
 
-ADD . /src
+ADD /code .
 
-WORKDIR .
+WORKDIR /code
 
 RUN pip install -r 'requirements.txt'
 
