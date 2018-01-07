@@ -6,7 +6,7 @@ EXPOSE 5000
 
 RUN mkdir /code
 
-COPY requirements.txt /code
+COPY . /code
 
 WORKDIR /code
 
