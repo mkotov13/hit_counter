@@ -4,7 +4,7 @@ MAINTAINER Max Kotov <maxkotovfromrussia@gmail.com>
 
 EXPOSE 5000
 
-ADD /code .
+COPY requirements.txt /code
 
 WORKDIR /code
 
