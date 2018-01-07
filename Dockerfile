@@ -6,6 +6,8 @@ EXPOSE 5000
 
 ADD . /src
 
+WORKDIR .
+
 RUN pip install -r 'requirements.txt'
 
 CMD python app.py
