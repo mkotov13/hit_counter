@@ -1,0 +1,15 @@
+---
+# setup.yml boots up ubuntu instances and installs docker
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    - launch
+      
+- hosts: webservers
+  become: true
+  become_user: root
+  become_method: sudo
+  roles:
+    - docker

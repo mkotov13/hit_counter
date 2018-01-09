@@ -1,0 +1,21 @@
+---
+
+- name: Run redis for hit-counter
+  docker:
+    docker_api_version: "1.18"
+    image: redis:3
+    state: started
+    pull: "always"
+    name: hit-counter-redis
+    
+- name: Run hit-counter-app
+  docker:
+    docker_api_version: '1.18'
+    image: "maxkotov/hit-counter"
+    ports:
+    - '80:5000'
+    links:
+    - 'hit-counter-redis:redis'
+    state: reloaded
+    pull: 'always'
+    name: hit-counter-app
