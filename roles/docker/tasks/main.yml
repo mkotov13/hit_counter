@@ -1,12 +1,21 @@
 ---
 
 - name: Install python setuptools & docker
-  apt-get:
+  apt:
     name: "{{ item }}"
     update_cache: yes
   with_items:
     - python-setuptools
     - docker
+    
+- name: Ensure docker-engine is installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "apt-transport-https"
+    - "ca-certificates"
+    - "docker-engine"
 
 - name: Start docker
   service:
